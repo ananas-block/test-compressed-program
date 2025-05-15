@@ -10,7 +10,7 @@ use light_sdk::{
     LightDiscriminator, LightHasher, NewAddressParamsPacked, ValidityProof,
 };
 
-declare_id!("FF2MW9aoDAiUUkZtuCkAWzyNnHjY4DjKxB4F35hn38Pq");
+declare_id!("Hb8hmd53Tcg4T1oKA7VJU3zzVRAHWDSKM6yjQdhB2rST");
 
 #[program]
 pub mod test_123 {
@@ -143,9 +143,8 @@ pub mod test_123 {
     }
 }
 
-#[derive(
-    Clone, Debug, Default, AnchorDeserialize, AnchorSerialize, LightDiscriminator, LightHasher,
-)]
+#[event]
+#[derive(Clone, Debug, Default, LightDiscriminator, LightHasher)]
 pub struct CounterCompressedAccount {
     #[hash]
     pub owner: Pubkey,
@@ -156,10 +155,4 @@ pub struct CounterCompressedAccount {
 pub struct GenericAnchorAccounts<'info> {
     #[account(mut)]
     pub signer: Signer<'info>,
-}
-
-#[event]
-pub struct IdlCounterCompressedAccount {
-    pub owner: Pubkey,
-    pub counter: u64,
 }

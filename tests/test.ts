@@ -16,19 +16,17 @@ import {
   Rpc,
   sleep,
 } from "@lightprotocol/stateless.js";
-type CounterCompressedAccount = anchor.IdlEvents<
-  typeof idl
->["IdlCounterCompressedAccount"];
 
 const path = require("path");
 const os = require("os");
 require("dotenv").config();
-const anchorWalletPath = path.join(os.homedir(), ".config/solana/id.json");
 
+const anchorWalletPath = path.join(os.homedir(), ".config/solana/id.json");
 process.env.ANCHOR_WALLET = anchorWalletPath;
 
 describe("test-anchor", () => {
   const program = anchor.workspace.Test123 as Program<Test123>;
+  const coder = new anchor.BorshCoder(idl as anchor.Idl);
 
   it("", async () => {
     let signer = new web3.Keypair();
@@ -68,13 +66,14 @@ describe("test-anchor", () => {
     await sleep(2000);
 
     let counterAccount = await rpc.getCompressedAccount(bn(address.toBytes()));
-    const coder = new anchor.BorshCoder(idl as anchor.Idl);
+
     let counter = coder.types.decode(
-      "IdlCounterCompressedAccount",
+      "CounterCompressedAccount",
       counterAccount.data.data
     );
     console.log("counter account ", counterAccount);
     console.log("des counter ", counter);
+
     await incrementCounterCompressedAccount(
       rpc,
       counter.counter,
@@ -89,7 +88,7 @@ describe("test-anchor", () => {
 
     counterAccount = await rpc.getCompressedAccount(bn(address.toBytes()));
     counter = coder.types.decode(
-      "IdlCounterCompressedAccount",
+      "CounterCompressedAccount",
       counterAccount.data.data
     );
     console.log("counter account ", counterAccount);
@@ -113,6 +112,7 @@ describe("test-anchor", () => {
     console.log("deletedCounterAccount ", deletedCounterAccount);
   });
 });
+
 async function CreateCounterCompressedAccount(
   rpc: Rpc,
   addressTree: anchor.web3.PublicKey,

@@ -11,19 +11,18 @@ $ anchor build
 ## Test
 
 Requirements:
-- light cli
+- light cli version 0.24.0
+- solana cli version 2.1.16
+- anchor version 0.31.1
 
 1. light test-validator
-2. anchor deploy // check that program id matches deployed id
-3. export ANCHOR_PROVIDER_URL="http://127.0.0.1:8899"
-4. export ANCHOR_WALLET="target/deploy/test_123-keypair.json"
-5. npm test
+2. anchor deploy
+3. npm test
 
-The test spawns a prover server in the background.
+The `$ light test-validator` spawns a solana test validator, a prover server, and a photon indexer in the background.
 In case of a connection refused error on port 3001 try to kill the prover server with `lsof -i:3001` and `kill <pid>`.
 
 
 ## Disclaimer
 
-Programs are audited and deployed on Solana devnet and mainnet.
-The light rust macros are experimental and api will change.
+Light Protocol programs are audited and deployed on Solana devnet and mainnet.
