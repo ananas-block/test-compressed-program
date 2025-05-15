@@ -1,3 +1,4 @@
+#![allow(unexpected_cfgs)]
 use anchor_lang::prelude::*;
 use light_sdk::{
     account::LightAccount,
@@ -22,6 +23,9 @@ pub mod test_123 {
         address_merkle_context: PackedAddressMerkleContext,
         output_merkle_tree_index: u8,
     ) -> Result<()> {
+        msg!("proof {:?}", proof);
+        msg!("address_merkle_context {:?}", address_merkle_context);
+        msg!("output_merkle_tree_index {}", output_merkle_tree_index);
         let program_id = crate::ID.into();
         let light_cpi_accounts = CpiAccounts::new(
             ctx.accounts.signer.as_ref(),
@@ -152,4 +156,10 @@ pub struct CounterCompressedAccount {
 pub struct GenericAnchorAccounts<'info> {
     #[account(mut)]
     pub signer: Signer<'info>,
+}
+
+#[event]
+pub struct IdlCounterCompressedAccount {
+    pub owner: Pubkey,
+    pub counter: u64,
 }

@@ -16,7 +16,7 @@ Requirements:
 1. light test-validator
 2. anchor deploy // check that program id matches deployed id
 3. export ANCHOR_PROVIDER_URL="http://127.0.0.1:8899"
-4. export ANCHOR_WALLET= "target/deploy/test_123-keypair.json"
+4. export ANCHOR_WALLET="target/deploy/test_123-keypair.json"
 5. npm test
 
 The test spawns a prover server in the background.
