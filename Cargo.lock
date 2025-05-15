@@ -1058,7 +1058,9 @@ dependencies = [
 
 [[package]]
 name = "light-account-checks"
-version = "0.1.0"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be36ef5deab5f090e6ddcc252e7e93c8b6eef2d65ff82493ed61dc8b14020152"
 dependencies = [
  "solana-account-info",
  "solana-program-error",
@@ -1069,7 +1071,9 @@ dependencies = [
 
 [[package]]
 name = "light-compressed-account"
-version = "0.1.0"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fd6efd28989fb1b7d6dc0d846919f0483df4a5ce8dca6cbe8d75a8cbad258c7a"
 dependencies = [
  "anchor-lang",
  "borsh 0.10.4",
@@ -1084,7 +1088,9 @@ dependencies = [
 
 [[package]]
 name = "light-hasher"
-version = "2.0.0"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "371b6d22607ddf42c977995afb11cac3b57764894edfe2a180fdce640c86e080"
 dependencies = [
  "ark-bn254 0.5.0",
  "ark-ff 0.5.0",
@@ -1101,7 +1107,9 @@ dependencies = [
 
 [[package]]
 name = "light-macros"
-version = "1.2.0"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ca5f4b6e1e97274dde89a64b9b4d0dba31b6bd862f751e2518891103ef9f777a"
 dependencies = [
  "bs58",
  "proc-macro2",
@@ -1124,6 +1132,8 @@ dependencies = [
 [[package]]
 name = "light-sdk"
 version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "97058a1bbc4c9592b4028082d24b1834b507a7c8034bbe6111906cd3fc1fbefe"
 dependencies = [
  "anchor-lang",
  "borsh 0.10.4",
@@ -1145,7 +1155,9 @@ dependencies = [
 
 [[package]]
 name = "light-sdk-macros"
-version = "0.5.1"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b6c5dad574dcb975a7a08607f70ccab7ba9c04bd57dd38952a0fc16a6c5e4086"
 dependencies = [
  "ark-bn254 0.5.0",
  "light-hasher",
@@ -1157,7 +1169,9 @@ dependencies = [
 
 [[package]]
 name = "light-verifier"
-version = "1.2.0"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "08707e7b13ef86e8eb4f7b0f1e68e6e1bbe8ce331767f670406565ce5030de5a"
 dependencies = [
  "groth16-solana",
  "light-compressed-account",
@@ -1168,7 +1182,9 @@ dependencies = [
 
 [[package]]
 name = "light-zero-copy"
-version = "0.1.0"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a34d759f65547a6540db7047f38f4cb2c3f01658deca95a1dd06f26b578de947"
 dependencies = [
  "solana-program-error",
  "thiserror 2.0.12",

@@ -10,8 +10,6 @@ import {
   defaultTestStateTreeAccounts,
   deriveAddress,
   deriveAddressSeed,
-  getConnection,
-  getTestRpc,
   LightSystemProgram,
   Rpc,
   sleep,

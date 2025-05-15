@@ -9,20 +9,15 @@ crate-type = ["cdylib", "lib"]
 name = "test_123"
 
 [features]
+idl-build = ["anchor-lang/idl-build", "light-sdk/idl-build"]
+
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
 test-sbf = []
-idl-build = ["anchor-lang/idl-build", "light-sdk/idl-build"]
-
 [dependencies]
 anchor-lang = "0.31.1"
-light-hasher = { path = "../../../light-protocol2/program-libs/hasher", features = [
-    "solana",
-] }
-light-sdk = { path = "../../../light-protocol2/sdk-libs/sdk", features = [
-    "anchor",
-    "idl-build",
-] }
+light-sdk = { version = "0.12.0", features = ["anchor"] }
+light-hasher = { version = "3.0.0", features = ["solana"] }
